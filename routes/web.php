@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\CursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [MainController::class, 'index']);
+
+Route::get('/fale-conosco', [MainController::class, 'faleConosco']);
+
+Route::get('/sobre-nos', [MainController::class, 'sobreNos']);
+
+Route::get('/listar-cursos', [CursoController::class, 'listar']);
+
+Route::get('/cadastrar-curso', [CursoController::class, 'cadastrar']);
