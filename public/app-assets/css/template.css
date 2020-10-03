@@ -2,7 +2,7 @@ body {
   background: white;
 }
 nav.navbar-material {
-  background: #004d40;
+  background: #00c853;
 ;
   border: none;
   box-shadow: none;
@@ -41,8 +41,10 @@ footer{
     margin: 0;
     height: 20px;
     min-height: 20px;
-    background-color: #004d40;
+    background-color: #00c853;
 }
+
+
 @media (max-width:220px){
     .navbar-material .nav-wrapper .brand-logo{
         position: relative;
@@ -55,6 +57,9 @@ footer{
     h2, h4{
         font-size: 2rem;
     }
+    span.grey-text.text-lighten-4 {
+        display: none;
+    }
 }
 
 @media (min-width:221px) and (max-width: 320px) {
@@ -65,6 +70,9 @@ footer{
     }
     h2, h4{
         font-size: 2.3rem;
+    }
+    span.grey-text.text-lighten-4 {
+        display: none;
     }
 }
 @media (min-width: 321px) and (max-width: 480px) {
@@ -87,9 +95,12 @@ footer{
     }
 }
 
-
 @media (min-width: 993px) {
     .navbar-material .nav-wrapper {
         padding: 0 10px 0 50px;
+    }
+
+    .container {
+        width: 85%;
     }
 }

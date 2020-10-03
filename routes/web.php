@@ -19,12 +19,32 @@ use App\Http\Controllers\CursoController;
 //     return view('welcome');
 // });
 
+
+//*****/ Controlador MainController
 Route::get('/', [MainController::class, 'index']);
 
-Route::get('/fale-conosco', [MainController::class, 'faleConosco']);
+// Agrupamento de rotas
+Route::prefix('/')->group(function(){
+    Route::get('fale-conosco', [MainController::class, 'faleConosco']);
+    Route::get('sobre-nos', [MainController::class, 'sobreNos']);
+});
 
-Route::get('/sobre-nos', [MainController::class, 'sobreNos']);
+// Route::get('/fale-conosco', [MainController::class, 'faleConosco']);
+// Route::get('/sobre-nos', [MainController::class, 'sobreNos']);
 
-Route::get('/listar-cursos', [CursoController::class, 'listar']);
 
-Route::get('/cadastrar-curso', [CursoController::class, 'cadastrar']);
+
+//*****/ Controlador CursoController
+// Rotas nomeadas
+Route::get('/listar-cursos', [CursoController::class, 'listar'])->name('listar');
+
+Route::get('/cadastrar-curso', [CursoController::class, 'formCadastrar'])->name('cadastrar');
+
+// Rota para salvar os dados
+Route::post('/cadastrar-curso', [CursoController::class, 'adicionarCurso'])->name('adicionar');
+
+// Rota para deletar um curso do banco de dados
+Route::delete('/deletar-curso/{id}', [CursoController::class, 'deletarCurso'])->name('deletar');
+
+
+// Route::post('/cadastrar-curso', [CursoController::class, 'adicionarCurso'])->name('adicionar');

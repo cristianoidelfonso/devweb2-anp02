@@ -21,16 +21,18 @@
         <a href="/" class="brand-logo"><strong>{{strtoupper('cursos')}}</strong> {{'Livres'}}</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/cadastrar-curso">Cadastrar Curso</a></li>
-                <li><a href="/listar-cursos">Listar Cursos</a></li>
+                {{-- Utilizando rotas nomeadas --}}
+                <li><a href="{{route('cadastrar')}}">Cadastrar Curso</a></li>
+                <li><a href="{{route('listar')}}">Listar Cursos</a></li>
                 <li><a href="/fale-conosco">Fale Conosco</a></li>
                 <li><a href="/sobre-nos">Sobre</a></li>
             </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="/cadastrar-curso">Cadastrar Curso</a></li>
-        <li><a href="/listar-cursos">Listar Cursos</a></li>
+        {{-- Utilizando rotas nomeadas --}}
+        <li><a href="{{route('cadastrar')}}">Cadastrar Curso</a></li>
+        <li><a href="{{route('listar')}}">Listar Cursos</a></li>
         <li><a href="/fale-conosco">Fale Conosco</a></li>
         <li><a href="/sobre-nos">Sobre</a></li>
     </ul>
@@ -67,9 +69,19 @@
         $(document).ready(function(){
             $('.sidenav').sidenav();
         });
+
+
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        @if (session('sucesso'))
+            // M.toast( { html: "{{ session('sucesso') }}" } );
+            var toastHTML = `<span>{{session('sucesso')}}</span>`;
+            M.toast({html: toastHTML, classes: 'rounded yellow accent-3  teal-text text-darken-4'});
+        @endif
+    </script>
 
 </body>
 </html>
