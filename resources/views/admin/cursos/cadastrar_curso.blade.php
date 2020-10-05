@@ -51,10 +51,16 @@
             </div>
             <div class="right-align">
                 <button class="btn waves-effect waves-light" type="submit">Salvar</button>
-                <a href="{{url()->previous()}}" class="btn-flat waves-effect">
+                {{-- <a href="{{url()->previous()}}" class="btn-flat waves-effect"> --}}
+                    {{-- <i class="large material-icons">close</i> --}}
+                    {{-- Cancelar --}}
+                {{-- </a> --}}
+
+                <a href="{{ route('listar') }}" class="btn-flat waves-effect">
                     {{-- <i class="large material-icons">close</i> --}}
                     Cancelar
                 </a>
+
             </div>
         </form>
     </section>
