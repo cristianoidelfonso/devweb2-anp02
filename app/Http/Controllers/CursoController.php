@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\CursoRequest;
 use App\Models\Curso;
 
 class CursoController extends Controller
 {
+
     public function formCadastrar(){
 
         return view('admin.cursos.cadastrar_curso');
 
     }
+
 
     public function listar(){
 
@@ -26,7 +29,8 @@ class CursoController extends Controller
         return view('admin.cursos.listar_cursos', compact('cursos') );
     }
 
-    public function adicionarCurso(Request $request){
+
+    public function adicionarCurso(CursoRequest $request){
 
         // echo 'Adicionar curso'.'<br>';
         // $nome = $request->input('nome');
@@ -44,6 +48,17 @@ class CursoController extends Controller
         // $curso->save();
 
 
+        // Validação dos dados
+        // $request->validate([
+        //     'nome' => 'bail|required|min:5|max:128|unique:cursos',
+        //     'carga_horaria' => 'required',
+        //     'professor' => 'bail|required|min:2',
+        //     'preco' => 'required',
+        // ]);
+
+        // A validação foi para o arquivo app/Http/Requests/CursoResquest.php
+
+
         // *****/ Usando o fillable na classe de modelo
         Curso::create( $request->all() );
 
@@ -52,6 +67,7 @@ class CursoController extends Controller
         return redirect()->route('listar');
 
     }
+
 
     public function deletarCurso($id_curso, Request $request){
 

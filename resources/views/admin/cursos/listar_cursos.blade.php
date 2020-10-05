@@ -29,7 +29,7 @@
                         <td>{{ $curso->updated_at }}</td>
                         <td class="center-align">
 
-                            <button class="btn waves-effect waves-light ">
+                            <button class="btn">
                                 <span title="Editar"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
                             </button>
 
